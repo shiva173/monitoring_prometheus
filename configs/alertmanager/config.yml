@@ -21,7 +21,7 @@ receivers:
     - name: 'telegram'
       webhook_configs:
       - send_resolved: True
-        url: ''
+        url: 'http://alertmanager-bot:9087/alert/"chat-id"'
     # - name: 'rocketchat'
     #   webhook_configs:
     #   - send_resolved: true

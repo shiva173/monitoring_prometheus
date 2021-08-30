@@ -38,6 +38,8 @@ services:
     image: prom/alertmanager:v0.20.0
     volumes:
       - ./configs/alertmanager/:/etc/alertmanager/
+    ports:
+      - 9093:9093
     command:
       - "--config.file=/etc/alertmanager/config.yml"
       - "--storage.path=/alertmanager"
@@ -63,10 +65,13 @@ services:
     restart: unless-stopped
 
   alertmanager-bot:
+    hostname: alertmanager-bot
     image: serg3091/prometheus_bot:v0.0.1
     volumes:
       - ./configs/alertmanager-bot/config.yaml:/config.yaml
       - ./configs/alertmanager-bot/template.tmpl:/template.tmpl
+    ports:
+      - 9087:9087
     restart: unless-stopped
 
   node_exporter:
@@ -86,6 +91,7 @@ services:
     restart: unless-stopped
 
   cadvisor:
+    hostname: cadvisor
     image: google/cadvisor:v0.32.0
     volumes:
       - /:/rootfs:ro

@@ -1,4 +1,4 @@
-telegram_token: ""
+telegram_token: "tocken telegram bot"
 template_path: "template.tmpl"
 time_zone: "Europe/Moscow"
 time_outdata: "2006-01-02 15:04:05"
